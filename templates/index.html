@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Cricket Scores</title>
+    <title>Cricket Live Scores</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,8 +13,8 @@
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
+            margin: auto;
+            background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,22 +22,22 @@
         h1 {
             color: #0056b3;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .match-card {
-            border: 1px solid #ddd;
+            background: #e9ecef;
+            border: 1px solid #dee2e6;
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 15px;
-            background-color: #f9f9f9;
         }
         .match-card h2 {
-            margin-top: 0;
-            color: #333;
+            color: #0056b3;
             font-size: 1.2em;
+            margin-top: 0;
         }
         .match-card p {
-            margin: 5px 0;
+            font-size: 0.9em;
             line-height: 1.5;
         }
         .match-card a {
@@ -47,10 +47,6 @@
         .match-card a:hover {
             text-decoration: underline;
         }
-        .no-matches {
-            text-align: center;
-            color: #666;
-        }
     </style>
 </head>
 <body>
@@ -59,13 +55,12 @@
         {% if matches %}
             {% for match in matches %}
                 <div class="match-card">
-                    <h2>{{ match.title }}</h2>
-                    <p>{{ match.description | safe }}</p>
-                    <p><a href="{{ match.link }}" target="_blank">View Details</a></p>
+                    <h2><a href="{{ match.link }}" target="_blank">{{ match.title }}</a></h2>
+                    <p>{{ match.description }}</p>
                 </div>
             {% endfor %}
         {% else %}
-            <p class="no-matches">No live matches available at the moment or failed to fetch scores.</p>
+            <p>No live matches available at the moment.</p>
         {% endif %}
     </div>
 </body>
