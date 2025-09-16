@@ -1,0 +1,2 @@
+I would like to create a Python Flask Application that shows me a list of live scores of cricket matches. There is a RSS Feed for this that is available over here: 
+  https://static.cricinfo.com/rss/livescores.xml. Let's use that.

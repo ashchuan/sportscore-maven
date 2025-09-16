@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .match-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        .match-card h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .match-card p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        .match-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .match-card a:hover {
+            text-decoration: underline;
+        }
+        .no-matches {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Live Cricket Scores</h1>
+        {% if matches %}
+            {% for match in matches %}
+                <div class="match-card">
+                    <h2>{{ match.title }}</h2>
+                    <p>{{ match.description | safe }}</p>
+                    <p><a href="{{ match.link }}" target="_blank">View Details</a></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-matches">No live matches available at the moment or failed to fetch scores.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
